@@ -1,13 +1,11 @@
-package cache
+package core
 
 import (
 	"sync"
-
-	"github.com/AadityaChoubey68/clevr-live/internal/core"
 )
 
 type RecentMessageCache struct {
-	messages []core.Message
+	messages []Message
 	size     int
 	index    int
 	count    int
@@ -16,14 +14,14 @@ type RecentMessageCache struct {
 
 func NewRecentMessageCache(size int) *RecentMessageCache {
 	return &RecentMessageCache{
-		messages: make([]core.Message, size),
+		messages: make([]Message, size),
 		size:     size,
 		index:    0,
 		count:    0,
 	}
 }
 
-func (c *RecentMessageCache) Add(msg core.Message) {
+func (c *RecentMessageCache) Add(msg Message) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -36,7 +34,7 @@ func (c *RecentMessageCache) Add(msg core.Message) {
 	}
 }
 
-func (c *RecentMessageCache) GetLast(n int) []core.Message {
+func (c *RecentMessageCache) GetLast(n int) []Message {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
 
@@ -45,10 +43,10 @@ func (c *RecentMessageCache) GetLast(n int) []core.Message {
 	}
 
 	if n == 0 {
-		return []core.Message{}
+		return []Message{}
 	}
 
-	result := make([]core.Message, n)
+	result := make([]Message, n)
 
 	startPost := (c.index - n + c.size) % c.size
 
@@ -59,7 +57,7 @@ func (c *RecentMessageCache) GetLast(n int) []core.Message {
 	return result
 }
 
-func (c *RecentMessageCache) GetAll() []core.Message {
+func (c *RecentMessageCache) GetAll() []Message {
 	return c.GetLast(c.count)
 }
 
