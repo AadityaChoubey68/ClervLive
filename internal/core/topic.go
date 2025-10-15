@@ -94,9 +94,8 @@ func (t *Topic) Subscribe(sub *Subscriber) error {
 
 	t.totalSubscribers.Add(1)
 
-	go t.sendRecentMessages(sub)
-
 	sub.Start()
+	go t.sendRecentMessages(sub)
 
 	fmt.Printf("Subscriber %s joined topic %s:%s (total: %d)\n",
 		sub.ID, t.tenantID, t.name, len(t.subscribers))
