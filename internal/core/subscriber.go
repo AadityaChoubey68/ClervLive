@@ -183,3 +183,7 @@ func (s *Subscriber) IsHealthy() bool {
 func (s *Subscriber) IsSlow() bool {
 	return s.droppedCount.Load() > 0
 }
+
+func (s *Subscriber) Context() context.Context {
+	return s.ctx
+}
