@@ -51,6 +51,10 @@ func (adm *AddaptiveBufferManager) monitorLoop() {
 func (adm *AddaptiveBufferManager) recalculate() {
 	subCount := adm.suncriberCount.Load()
 
+	if subCount == 0 {
+		return
+	}
+
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
 	currentMomory := int64(m.Alloc)

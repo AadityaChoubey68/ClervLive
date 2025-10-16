@@ -15,6 +15,3 @@ tests/
 
 # OS
 .DS_Store
-
-# Go
-go.sum
