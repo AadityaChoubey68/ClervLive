@@ -2,7 +2,7 @@
 
 A high-performance, real-time event streaming system built in Go with adaptive backpressure handling and multi-tenant support.
 
-## 🎯 Overview
+## Overview
 
 This system allows multiple publishers to publish events to logical topics, and multiple subscribers to receive those events in real-time via WebSocket connections. The system handles high-throughput scenarios with intelligent backpressure mechanisms and memory-aware buffer management.
 
