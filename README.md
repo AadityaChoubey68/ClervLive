@@ -18,7 +18,7 @@ This system allows multiple publishers to publish events to logical topics, and 
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### High-Level Design
 ```
@@ -78,7 +78,7 @@ Publisher → [Rate Limit] → Topic Manager → Topic → [Fan-out] → Subscri
 
 ---
 
-## 🎨 Design Decisions
+## Design Decisions
 
 ### 1. Why No Kafka/Redis?
 
@@ -157,7 +157,7 @@ Complete isolation! No cross-tenant data leakage.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -213,7 +213,7 @@ ADDRESS=":9000" MAX_MEMORY_MB=4096 go run cmd/server/main.go
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### 1. Publish Message
 
@@ -336,7 +336,7 @@ curl http://localhost:8080/health | jq
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Basic Flow Test
 
@@ -380,7 +380,7 @@ done
 
 ---
 
-## 📊 Performance Characteristics
+## Performance Characteristics
 
 ### Throughput
 - **Single topic:** 50,000 - 100,000 messages/second
@@ -400,7 +400,7 @@ done
 
 ---
 
-## 🔄 Horizontal Scaling Strategy
+## Horizontal Scaling Strategy
 
 **Current:** Single-instance in-memory system
 
@@ -430,7 +430,7 @@ Publishers → Kafka → Multiple Servers → Subscribers
 
 ---
 
-## 🛡️ Error Handling
+## Error Handling
 
 ### Subscriber Errors
 - **Slow subscriber:** Messages dropped, metrics tracked
@@ -449,7 +449,7 @@ Publishers → Kafka → Multiple Servers → Subscribers
 
 ---
 
-## 📈 Monitoring
+## Monitoring
 
 ### Key Metrics
 - Active subscribers count
@@ -470,7 +470,7 @@ curl http://localhost:8080/metrics
 
 ---
 
-## 🧹 Graceful Shutdown
+## Graceful Shutdown
 
 The system handles shutdown signals properly:
 ```bash
@@ -488,7 +488,7 @@ kill -TERM <pid>
 
 ---
 
-## 🏆 Key Technical Achievements
+## Key Technical Achievements
 
 ### 1. Concurrency Mastery
 - Goroutine per subscriber for independent delivery
@@ -516,7 +516,7 @@ kill -TERM <pid>
 
 ---
 
-## 📚 Code Structure
+## Code Structure
 ```
 clevrscan/
 ├── cmd/
@@ -545,7 +545,7 @@ clevrscan/
 
 ---
 
-## 🎓 Design Patterns Used
+## Design Patterns Used
 
 - **Pub/Sub Pattern:** Decoupled publishers and subscribers
 - **Fan-Out Pattern:** One message to many recipients
@@ -557,7 +557,7 @@ clevrscan/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This is a technical assignment submission. For production use, consider:
 - Authentication and authorization (API keys, JWT)
@@ -582,16 +582,16 @@ This is a technical assignment submission. For production use, consider:
 
 
 
-**Thank you for reviewing this submission!** 🚀
+**Thank you for reviewing this submission!** 
 ```
 
 ---
 
-## ✅ YOU'RE DONE! 🎉
+## YOU'RE DONE! 🎉
 
 ### **Complete File List:**
 ```
-✅ All Implementation Files (12):
+All Implementation Files (12):
 1.  go.mod
 2.  internal/core/message.go
 3.  internal/buffer/adaptive_manager.go
@@ -605,13 +605,13 @@ This is a technical assignment submission. For production use, consider:
 11. internal/handlers/health.go
 12. cmd/server/main.go
 
-✅ Docker Files (3):
+Docker Files (3):
 13. Dockerfile
 14. docker-compose.yml
 15. .dockerignore
 
-✅ Documentation (1):
+Documentation (1):
 16. README.md ← Just completed!
 
-✅ Auto-generated:
+Auto-generated:
 17. go.sum (from go mod tidy)
